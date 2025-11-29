@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootSendQuestion"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F9F9FB"
+    tools:context=".SendQuestionActivity">
+
+    <!-- Üst bar -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/topAppBarSend"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#F9F9FB"
+        android:elevation="0dp"
+        app:navigationIcon="@drawable/ic_arrow_back_24"
+        app:navigationIconTint="#555879"
+        app:title="Sınav/Soru Gönder"
+        app:titleCentered="true"
+        app:titleTextColor="#555879"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- İçerik -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollSend"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="16dp"
+        android:clipToPadding="false"
+        app:layout_constraintTop_toBottomOf="@id/topAppBarSend"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavSend"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Dosya ekleme alanı -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardDropArea"
+                android:layout_width="match_parent"
+                android:layout_height="190dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="20dp"
+                app:cardBackgroundColor="#F9F9FB"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeColor="#D4D8F5"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/tvDropHint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Yüklemek için dosya seçin."
+                        android:textColor="#555879"
+                        android:textSize="15sp"
+                        android:layout_marginBottom="12dp"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnAddFile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="44dp"
+                        android:text="Dosya Ekle"
+                        android:textAllCaps="false"
+                        android:textColor="#555879"
+                        android:textSize="14sp"
+                        app:icon="@drawable/ic_add_24"
+                        app:iconGravity="textEnd"
+                        app:iconTint="#555879"
+                        app:backgroundTint="#C9C6FF"
+                        app:cornerRadius="22dp"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Başlık: Yüklenecek dosyalar -->
+            <TextView
+                android:id="@+id/tvFileHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Yüklenecek dosyalar (0)"
+                android:textColor="#555879"
+                android:textSize="14sp"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- Dosya listesi (başlangıçta boş) -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvFiles"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                tools:listitem="@layout/item_file_row"/>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="24dp" />
+
+            <!-- Yükleniyor + Gönder alanı -->
+            <LinearLayout
+                android:id="@+id/bottomSendArea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <!-- Yükleniyor kartı -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="0dp"
+                    android:layout_height="72dp"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="24dp"
+                    app:cardElevation="0dp"
+                    app:cardBackgroundColor="#FFFFFF">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center_vertical"
+                        android:padding="12dp">
+
+                        <TextView
+                            android:id="@+id/tvProgressLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Yükleniyor..."
+                            android:textColor="#555879"
+                            android:textSize="13sp"/>
+
+                        <com.google.android.material.progressindicator.LinearProgressIndicator
+                            android:id="@+id/progressUpload"
+                            android:layout_width="match_parent"
+                            android:layout_height="8dp"
+                            android:layout_marginTop="8dp"
+                            app:trackThickness="8dp"
+                            app:trackCornerRadius="16dp"
+                            android:indeterminate="false"
+                            android:progress="0"
+                            android:max="100"/>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Gönder butonu -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSendFiles"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:layout_marginStart="16dp"
+                    app:backgroundTint="#C9C6FF"
+                    app:cornerRadius="32dp"
+                    app:icon="@drawable/ic_send_24"
+                    app:iconTint="#555879"
+                    android:text=""
+                    android:contentDescription="Gönder" />
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Alt menü -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavSend"
+        android:layout_width="match_parent"
+        android:layout_height="91dp"
+        android:background="#FFFFFF"
+        android:elevation="8dp"
+        app:itemHorizontalTranslationEnabled="false"
+        app:itemIconSize="22dp"
+        app:itemIconTint="@color/nav_tint_single"
+        app:itemTextColor="@color/nav_tint_single"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/menu_bottom_nav"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

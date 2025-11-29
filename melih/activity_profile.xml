@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F9F9FB"
+    tools:context=".ProfileActivity">
+
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/topAppBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#F9F9FB"
+        android:elevation="0dp"
+        app:title="Profilim"
+        app:titleCentered="true"
+        app:titleTextColor="#555879"
+        app:navigationIcon="@drawable/ic_arrow_back_24"
+        app:navigationIconTint="#555879"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/profileScroll"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:padding="20dp"
+        android:paddingBottom="96dp"
+        android:clipToPadding="false"
+        app:layout_constraintTop_toBottomOf="@id/topAppBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottomNav">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/avatarCard"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="64dp"
+                app:cardCornerRadius="60dp"
+                app:cardElevation="0dp"
+                app:strokeColor="#E6E8F2"
+                app:strokeWidth="1dp"
+                app:cardBackgroundColor="#FFFFFFFF">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/avatarImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:clipToOutline="true" />
+                </FrameLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <TextView
+                android:id="@+id/tvUserName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Kullanıcı Adı"
+                android:textColor="#555879"
+                android:textSize="16sp"
+                android:fontFamily="sans-serif-medium"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnEditProfile"
+                        style="@style/Widget.MaterialComponents.Button"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:text="Profilimi düzenle"
+                        android:textAllCaps="false"
+                        android:textColor="#555879"
+                        android:textSize="16sp"
+                        app:cornerRadius="8dp"
+                        app:backgroundTint="#C9C6FF"
+                        app:icon="@drawable/ic_edit_24"
+                        app:iconTint="#555879"
+                        app:iconPadding="12dp"
+                        app:iconGravity="start"/>
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="end|center_vertical"
+                        android:layout_marginEnd="16dp"
+                        app:srcCompat="@drawable/ic_chevron_right_24"
+                        app:tint="#555879"
+                        android:elevation="8dp"/>
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnLesson"
+                        style="@style/Widget.MaterialComponents.Button"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:text="Sınav/Soru gönder"
+                        android:textAllCaps="false"
+                        android:textColor="#555879"
+                        android:textSize="16sp"
+                        app:cornerRadius="8dp"
+                        app:backgroundTint="#C9C6FF"
+                        app:icon="@drawable/outline_book_5_24"
+                        app:iconTint="#555879"
+                        app:iconPadding="12dp"
+                        app:iconGravity="start"/>
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="end|center_vertical"
+                        android:layout_marginEnd="16dp"
+                        app:srcCompat="@drawable/ic_chevron_right_24"
+                        app:tint="#555879"
+                        android:elevation="8dp"/>
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnDeleteAccount"
+                        style="@style/Widget.MaterialComponents.Button"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:text="Hesabımı sil"
+                        android:textAllCaps="false"
+                        android:textColor="#555879"
+                        android:textSize="16sp"
+                        app:cornerRadius="8dp"
+                        app:backgroundTint="#C9C6FF"
+                        app:icon="@drawable/ic_person_remove_24"
+                        app:iconTint="#555879"
+                        app:iconPadding="12dp"
+                        app:iconGravity="start"/>
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="end|center_vertical"
+                        android:layout_marginEnd="16dp"
+                        app:srcCompat="@drawable/ic_chevron_right_24"
+                        app:tint="#555879"
+                        android:elevation="8dp"/>
+                </FrameLayout>
+
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnLogout"
+                        style="@style/Widget.MaterialComponents.Button"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:text="Çıkış yap"
+                        android:textAllCaps="false"
+                        android:textColor="#555879"
+                        android:textSize="16sp"
+                        app:cornerRadius="8dp"
+                        app:backgroundTint="#C9C6FF"
+                        app:icon="@drawable/ic_logout_24"
+                        app:iconTint="#555879"
+                        app:iconPadding="12dp"
+                        app:iconGravity="start"/>
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="end|center_vertical"
+                        android:layout_marginEnd="16dp"
+                        app:srcCompat="@drawable/ic_chevron_right_24"
+                        app:tint="#555879"
+                        android:elevation="8dp"/>
+                </FrameLayout>
+
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnFeedback"
+                        style="@style/Widget.MaterialComponents.Button"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:text="Geri bildirim gönder"
+                        android:textAllCaps="false"
+                        android:textColor="#555879"
+                        android:textSize="16sp"
+                        app:cornerRadius="8dp"
+                        app:backgroundTint="#C9C6FF"
+                        app:icon="@drawable/ic_feedback_24"
+                        app:iconTint="#555879"
+                        app:iconPadding="12dp"
+                        app:iconGravity="start"/>
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="end|center_vertical"
+                        android:layout_marginEnd="16dp"
+                        app:srcCompat="@drawable/ic_chevron_right_24"
+                        app:tint="#555879"
+                        android:elevation="8dp"/>
+                </FrameLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="91dp"
+        android:background="#FFFFFF"
+        android:elevation="8dp"
+        app:itemHorizontalTranslationEnabled="false"
+        app:itemIconSize="22dp"
+        app:itemIconTint="@color/nav_tint_single"
+        app:itemTextColor="@color/nav_tint_single"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/menu_bottom_nav" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
